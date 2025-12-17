@@ -29,3 +29,13 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Hide scrollbar for horizontal TOC on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

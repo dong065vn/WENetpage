@@ -43,21 +43,42 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-lg font-bold text-gray-800">Dịch Vụ WENet</h1>
-          <Link href="/" className="text-blue-600 hover:text-blue-700">
+        <div className="max-w-5xl mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+          <h1 className="text-base md:text-lg font-bold text-gray-800 truncate">Dịch Vụ WENet</h1>
+          <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm md:text-base whitespace-nowrap ml-2">
             ← Trang chủ
           </Link>
         </div>
       </header>
 
+      {/* Mobile TOC - Horizontal scroll */}
+      <div className="lg:hidden sticky top-[52px] z-40 bg-white border-b shadow-sm">
+        <div className="overflow-x-auto scrollbar-hide">
+          <nav className="flex gap-2 px-4 py-3 min-w-max">
+            {tocItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`px-3 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 ${
+                  activeSection === item.id
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {item.number}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
       {/* Content */}
-      <main className="py-10">
+      <main className="py-6 md:py-10">
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid lg:grid-cols-4 gap-6">
             
-            {/* TOC Sidebar */}
-            <aside className="lg:col-span-1">
+            {/* TOC Sidebar - Desktop only */}
+            <aside className="hidden lg:block lg:col-span-1">
               <div className="sticky top-20 bg-white rounded-lg shadow p-4">
                 <h3 className="font-bold text-gray-800 mb-3 pb-2 border-b">Mục lục</h3>
                 <nav className="space-y-1">
@@ -79,34 +100,34 @@ export default function ServicesPage() {
             </aside>
 
             {/* Article */}
-            <article className="lg:col-span-3 bg-white rounded-lg shadow p-6 md:p-10 prose prose-gray max-w-none">
+            <article className="lg:col-span-3 bg-white rounded-lg shadow p-4 md:p-6 lg:p-10 prose prose-gray max-w-none prose-sm md:prose-base">
               
               {/* Intro */}
-              <div className="not-prose mb-10 pb-10 border-b bg-gradient-to-r from-blue-50 to-white -mx-6 -mt-6 md:-mx-10 md:-mt-10 px-6 md:px-10 pt-6 md:pt-10 rounded-t-lg">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              <div className="not-prose mb-6 md:mb-10 pb-6 md:pb-10 border-b bg-gradient-to-r from-blue-50 to-white -mx-4 -mt-4 md:-mx-6 md:-mt-6 lg:-mx-10 lg:-mt-10 px-4 md:px-6 lg:px-10 pt-4 md:pt-6 lg:pt-10 rounded-t-lg">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
                   Dịch Vụ Của WENet Hà Nội
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed mb-3 md:mb-4">
                   WENet cung cấp <strong className="text-blue-600">giải pháp toàn diện</strong> về nhân sự công nghệ cao 
                   và dịch vụ đổi mới sáng tạo, giúp doanh nghiệp tăng tốc chuyển đổi số và nâng cao năng lực cạnh tranh.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                <div className="flex flex-wrap gap-2 md:gap-3">
+                  <span className="bg-blue-100 text-blue-700 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium">
                     Cloud & DevOps
                   </span>
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                  <span className="bg-blue-100 text-blue-700 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium">
                     AI/ML
                   </span>
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                  <span className="bg-blue-100 text-blue-700 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium">
                     Edge & IoT
                   </span>
-                  <span className="bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full text-sm font-medium">
+                  <span className="bg-emerald-100 text-emerald-700 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium">
                     VR/AR/XR Training
                   </span>
                 </div>
               </div>
 
-              <section id="hr-service" className="scroll-mt-24 mb-10 pb-10 border-b">
+              <section id="hr-service" className="scroll-mt-32 lg:scroll-mt-24 mb-6 md:mb-10 pb-6 md:pb-10 border-b">
                 <h2>2.1. DỊCH VỤ CUNG ỨNG VÀ PHÁT TRIỂN NHÂN LỰC CÔNG NGHỆ CAO</h2>
                 
                 <p><strong>Tiêu đề: GIẢI PHÁP NHÂN SỰ CÔNG NGHỆ CAO CHO DOANH NGHIỆP</strong></p>
@@ -130,7 +151,7 @@ export default function ServicesPage() {
                 </ul>
               </section>
 
-              <section id="tech-service" className="scroll-mt-24">
+              <section id="tech-service" className="scroll-mt-32 lg:scroll-mt-24">
                 <h2>2.2. DỊCH VỤ CÔNG NGHỆ & ĐỔI MỚI</h2>
                 
                 <p><strong>Tiêu đề: NGHIÊN CỨU ỨNG DỤNG VÀ CHUYỂN GIAO PHƯƠNG PHÁP ĐÀO TẠO ĐỘT PHÁ</strong></p>
@@ -170,8 +191,8 @@ export default function ServicesPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-gray-400 py-6">
-        <div className="max-w-5xl mx-auto px-4 text-center">
+      <footer className="bg-gray-800 text-gray-400 py-4 md:py-6">
+        <div className="max-w-5xl mx-auto px-4 text-center text-sm">
           <p>© 2024 WENet Hà Nội. All rights reserved.</p>
         </div>
       </footer>

@@ -54,7 +54,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-12 md:py-20 bg-gray-50">
       <Container>
         <FadeInSection>
           <SectionTitle
@@ -63,11 +63,11 @@ export default function ContactSection() {
           />
         </FadeInSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
           {/* Form */}
           <FadeInSection delay={100}>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Form Liên hệ Nhanh</h3>
+            <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 md:mb-6">Form Liên hệ Nhanh</h3>
 
               {isSubmitted ? (
                 <div className="text-center py-12">
@@ -200,31 +200,31 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div className="space-y-8">
             <FadeInSection delay={200}>
-              <div className="bg-gradient-to-br from-[#0066cc] to-blue-800 rounded-2xl p-8 text-white">
-                <h3 className="text-xl font-bold mb-6">Thông tin Liên hệ Chính thức</h3>
+              <div className="bg-gradient-to-br from-[#0066cc] to-blue-800 rounded-xl md:rounded-2xl p-4 md:p-8 text-white">
+                <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">Thông tin Liên hệ Chính thức</h3>
 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">📍</span>
+                <div className="space-y-3 md:space-y-4">
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <span className="text-xl md:text-2xl">📍</span>
                     <div>
-                      <h4 className="font-semibold">Địa chỉ Trụ sở</h4>
-                      <p className="text-white/80">54 P.Triều Khúc, Phường Thanh Liệt, Hà Nội</p>
+                      <h4 className="font-semibold text-sm md:text-base">Địa chỉ Trụ sở</h4>
+                      <p className="text-white/80 text-sm md:text-base">54 P.Triều Khúc, Phường Thanh Liệt, Hà Nội</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">📞</span>
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <span className="text-xl md:text-2xl">📞</span>
                     <div>
-                      <h4 className="font-semibold">Điện thoại</h4>
-                      <p className="text-white/80">+84 xxx xxx xxx</p>
+                      <h4 className="font-semibold text-sm md:text-base">Điện thoại</h4>
+                      <p className="text-white/80 text-sm md:text-base">+84 xxx xxx xxx</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="text-2xl">✉️</span>
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <span className="text-xl md:text-2xl">✉️</span>
                     <div>
-                      <h4 className="font-semibold">Email</h4>
-                      <p className="text-white/80">contact@wenet.vn</p>
+                      <h4 className="font-semibold text-sm md:text-base">Email</h4>
+                      <p className="text-white/80 text-sm md:text-base">contact@wenet.vn</p>
                     </div>
                   </div>
                 </div>
@@ -232,18 +232,18 @@ export default function ContactSection() {
             </FadeInSection>
 
             <FadeInSection delay={300}>
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Phòng ban Chuyên trách</h3>
-                <div className="space-y-3">
+              <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-8 shadow-lg">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">Phòng ban Chuyên trách</h3>
+                <div className="space-y-2 md:space-y-3">
                   <div className="flex justify-between items-center py-2 border-b">
-                    <span className="text-gray-600">Phòng Kinh doanh</span>
-                    <a href="mailto:sales@wenet.vn" className="font-medium text-[#0066cc] hover:underline">
+                    <span className="text-gray-600 text-sm md:text-base">Phòng Kinh doanh</span>
+                    <a href="mailto:sales@wenet.vn" className="font-medium text-[#0066cc] hover:underline text-sm md:text-base">
                       sales@wenet.vn
                     </a>
                   </div>
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-gray-600">Phòng Đào tạo</span>
-                    <a href="mailto:training@wenet.vn" className="font-medium text-[#0066cc] hover:underline">
+                    <span className="text-gray-600 text-sm md:text-base">Phòng Đào tạo</span>
+                    <a href="mailto:training@wenet.vn" className="font-medium text-[#0066cc] hover:underline text-sm md:text-base">
                       training@wenet.vn
                     </a>
                   </div>

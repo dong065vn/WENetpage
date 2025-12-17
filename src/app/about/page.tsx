@@ -46,31 +46,49 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-lg font-bold text-gray-800">Giới thiệu về WENet</h1>
-          <Link href="/" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
-            Quay lại trang chủ →
+        <div className="max-w-6xl mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+          <h1 className="text-base md:text-lg font-bold text-gray-800 truncate">Giới thiệu về WENet</h1>
+          <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm md:text-base whitespace-nowrap ml-2">
+            ← Trang chủ
           </Link>
         </div>
       </header>
 
+      {/* Mobile TOC - Horizontal scroll */}
+      <div className="lg:hidden sticky top-[52px] z-40 bg-white border-b shadow-sm">
+        <div className="overflow-x-auto scrollbar-hide">
+          <nav className="flex gap-2 px-4 py-3 min-w-max">
+            {tocItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`px-3 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 ${
+                  activeSection === item.id
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                {item.number}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
       {/* Hero: Company Name + Video */}
       <section className="bg-white border-b">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Company Name - Left */}
+        <div className="max-w-6xl mx-auto px-4 py-6 md:py-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+            {/* Company Name */}
             <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">WENet Việt Nam</h2>
-              <p className="text-gray-600">Công ty Cổ phần WENet Việt Nam</p>
-              <p className="text-gray-500 mt-2">Kiến tạo Nhân lực Công nghệ Cao</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">WENet Việt Nam</h2>
+              <p className="text-gray-600 text-sm md:text-base">Công ty Cổ phần WENet Việt Nam</p>
+              <p className="text-gray-500 mt-2 text-sm md:text-base">Kiến tạo Nhân lực Công nghệ Cao</p>
             </div>
-            {/* Video - Right */}
+            {/* Video */}
             <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
               <video className="w-full h-full object-cover" controls poster="/images/about/video-poster.jpg">
                 <source src="/videos/wenet-intro.mp4" type="video/mp4" />
-                <div className="w-full h-full flex items-center justify-center text-white">
-                  Video giới thiệu WENet
-                </div>
               </video>
             </div>
           </div>
@@ -78,11 +96,11 @@ export default function AboutPage() {
       </section>
 
       {/* Main: TOC + Content */}
-      <section className="py-8">
+      <section className="py-6 md:py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid lg:grid-cols-4 gap-6">
-            {/* TOC Sidebar */}
-            <aside className="lg:col-span-1">
+            {/* TOC Sidebar - Desktop only */}
+            <aside className="hidden lg:block lg:col-span-1">
               <div className="sticky top-20 bg-white rounded-lg shadow p-4">
                 <h3 className="font-bold text-gray-800 mb-3 pb-2 border-b">Mục lục</h3>
                 <nav className="space-y-1">
@@ -105,13 +123,13 @@ export default function AboutPage() {
 
             {/* Content Box */}
             <article className="lg:col-span-3">
-              <div className="bg-white rounded-lg shadow p-6 lg:p-8">
+              <div className="bg-white rounded-lg shadow p-4 md:p-6 lg:p-8">
 
                 {/* 1.1 */}
-                <section id="vision" className="mb-8 pb-8 border-b scroll-mt-24">
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">1.1. ĐỊNH VỊ CHIẾN LƯỢC VÀ TẦM NHÌN</h2>
-                  <p className="text-blue-600 font-medium mb-4">Tiêu đề: DẪN ĐẦU KIẾN TẠO NHÂN LỰC CÔNG NGHỆ CAO VIỆT NAM</p>
-                  <div className="text-gray-700 leading-relaxed space-y-3">
+                <section id="vision" className="mb-6 md:mb-8 pb-6 md:pb-8 border-b scroll-mt-32 lg:scroll-mt-24">
+                  <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-1">1.1. ĐỊNH VỊ CHIẾN LƯỢC VÀ TẦM NHÌN</h2>
+                  <p className="text-blue-600 font-medium mb-3 md:mb-4 text-sm md:text-base">Tiêu đề: DẪN ĐẦU KIẾN TẠO NHÂN LỰC CÔNG NGHỆ CAO VIỆT NAM</p>
+                  <div className="text-gray-700 leading-relaxed space-y-3 text-sm md:text-base">
                     <p>
                       Nội dung: Công ty Cổ phần WENet Hà Nội được thành lập với khát vọng trở thành nhà đào tạo và 
                       nhà cung cấp nguồn nhân lực công nghệ cao dẫn đầu Việt Nam. Chúng tôi chuyên sâu trong ba trụ cột 
@@ -126,12 +144,12 @@ export default function AboutPage() {
                 </section>
 
                 {/* 1.2 */}
-                <section id="mission" className="mb-8 pb-8 border-b scroll-mt-24">
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">1.2. SỨ MỆNH</h2>
-                  <p className="text-blue-600 font-medium mb-4">Tiêu đề: CẦU NỐI GIỮA ĐỔI MỚI VÀ HIỆU SUẤT KINH DOANH</p>
-                  <div className="text-gray-700 leading-relaxed">
+                <section id="mission" className="mb-6 md:mb-8 pb-6 md:pb-8 border-b scroll-mt-32 lg:scroll-mt-24">
+                  <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-1">1.2. SỨ MỆNH</h2>
+                  <p className="text-blue-600 font-medium mb-3 md:mb-4 text-sm md:text-base">Tiêu đề: CẦU NỐI GIỮA ĐỔI MỚI VÀ HIỆU SUẤT KINH DOANH</p>
+                  <div className="text-gray-700 leading-relaxed text-sm md:text-base">
                     <p className="mb-3">Nội dung: WENet cam kết thực hiện ba sứ mệnh song hành:</p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
+                    <ul className="list-disc list-outside space-y-2 ml-5">
                       <li>
                         <strong>Đào tạo nhân lực kỹ thuật cao:</strong> Cung cấp kiến thức, kỹ năng và thái độ chuyên nghiệp, 
                         đặc biệt trong lĩnh vực Edge Computing, Cloud Service, và AI.
@@ -150,12 +168,12 @@ export default function AboutPage() {
                 </section>
 
                 {/* 1.3 */}
-                <section id="values" className="mb-8 pb-8 border-b scroll-mt-24">
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">1.3. GIÁ TRỊ CỐT LÕI</h2>
-                  <p className="text-blue-600 font-medium mb-4">Tiêu đề: VĂN HÓA LÀM VIỆC DỰA TRÊN KỶ LUẬT VÀ SÁNG TẠO</p>
-                  <div className="text-gray-700 leading-relaxed">
+                <section id="values" className="mb-6 md:mb-8 pb-6 md:pb-8 border-b scroll-mt-32 lg:scroll-mt-24">
+                  <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-1">1.3. GIÁ TRỊ CỐT LÕI</h2>
+                  <p className="text-blue-600 font-medium mb-3 md:mb-4 text-sm md:text-base">Tiêu đề: VĂN HÓA LÀM VIỆC DỰA TRÊN KỶ LUẬT VÀ SÁNG TẠO</p>
+                  <div className="text-gray-700 leading-relaxed text-sm md:text-base">
                     <p className="mb-3">Nội dung: WENet xây dựng chất lượng nhân sự và dịch vụ dựa trên sáu giá trị không thể thay đổi:</p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
+                    <ul className="list-disc list-outside space-y-2 ml-5">
                       <li>
                         <strong>Nhiệt Huyết:</strong> Luôn giữ lửa đam mê, tinh thần chủ động trong mọi dự án và khóa học.
                       </li>
@@ -175,12 +193,12 @@ export default function AboutPage() {
                 </section>
 
                 {/* 1.4 */}
-                <section id="strength" className="scroll-mt-24">
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">1.4. THẾ MẠNH</h2>
-                  <p className="text-blue-600 font-medium mb-4">Tiêu đề: SỨC MẠNH TỪ HỆ SINH THÁI CHUYÊN GIA</p>
-                  <div className="text-gray-700 leading-relaxed">
+                <section id="strength" className="scroll-mt-32 lg:scroll-mt-24">
+                  <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-1">1.4. THẾ MẠNH</h2>
+                  <p className="text-blue-600 font-medium mb-3 md:mb-4 text-sm md:text-base">Tiêu đề: SỨC MẠNH TỪ HỆ SINH THÁI CHUYÊN GIA</p>
+                  <div className="text-gray-700 leading-relaxed text-sm md:text-base">
                     <p className="mb-3">Nội dung:</p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
+                    <ul className="list-disc list-outside space-y-2 ml-5">
                       <li>
                         <strong>Đội ngũ Chuyên gia Toàn cầu:</strong> Giảng viên là các chuyên gia Cloud Service người Việt 
                         đang sinh sống tại Hoa Kỳ, cùng các nhà quản lý AI và nhân sự quản lý từ các công ty hàng đầu Việt Nam 
@@ -205,8 +223,8 @@ export default function AboutPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-gray-400 py-6">
-        <div className="max-w-6xl mx-auto px-4 text-center">
+      <footer className="bg-gray-800 text-gray-400 py-4 md:py-6">
+        <div className="max-w-6xl mx-auto px-4 text-center text-sm">
           <p>© 2024 WENet Hà Nội. All rights reserved.</p>
         </div>
       </footer>

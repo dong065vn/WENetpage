@@ -53,7 +53,7 @@ export default function TrainingSection() {
   };
 
   return (
-    <section id="training" className="py-20 bg-gray-50">
+    <section id="training" className="py-12 md:py-20 bg-gray-50">
       <Container>
         <FadeInSection>
           <SectionTitle
@@ -64,22 +64,22 @@ export default function TrainingSection() {
 
         {/* Features Grid */}
         <FadeInSection delay={100}>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8 md:mb-16">
             {features.map((feature, idx) => (
               <div
                 key={feature.title}
-                className="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="bg-white rounded-xl p-3 md:p-4 text-center shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
-                <h4 className="font-semibold text-gray-900 text-sm mb-1">{feature.title}</h4>
-                <p className="text-gray-500 text-xs">{feature.desc}</p>
+                <h4 className="font-semibold text-gray-900 text-xs md:text-sm mb-1">{feature.title}</h4>
+                <p className="text-gray-500 text-[10px] md:text-xs">{feature.desc}</p>
               </div>
             ))}
           </div>
         </FadeInSection>
 
         {/* Audience Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           {audiences.map((audience, idx) => (
             <FadeInSection key={audience.id} delay={200 + idx * 100}>
               <div
@@ -106,16 +106,16 @@ export default function TrainingSection() {
                   </div>
                 </div>
 
-                <div className="p-6 lg:p-8">
-                  <h4 className="text-xl font-bold mb-6">{audience.subtitle}</h4>
+                <div className="p-4 md:p-6 lg:p-8">
+                  <h4 className="text-base md:text-xl font-bold mb-4 md:mb-6">{audience.subtitle}</h4>
 
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                     {audience.benefits.map((benefit, benefitIdx) => (
-                      <li key={benefitIdx} className="flex items-start gap-3">
-                        <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                      <li key={benefitIdx} className="flex items-start gap-2 md:gap-3">
+                        <span className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px] md:text-xs flex-shrink-0 mt-0.5">
                           ✓
                         </span>
-                        <span className="opacity-90">{benefit}</span>
+                        <span className="opacity-90 text-sm md:text-base">{benefit}</span>
                       </li>
                     ))}
                   </ul>
