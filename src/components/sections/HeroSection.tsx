@@ -2,54 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Button, Container } from '../ui';
-import { images } from '@/lib/images';
-
-const slides = [
-  {
-    id: 1,
-    headline: 'KIẾN TẠO TƯƠNG LAI CÔNG NGHỆ CAO',
-    subheadline: 'CHUYÊN GIA SỐ VỀ CLOUD, AI & EDGE',
-    description:
-      'Nâng cao hiệu suất kinh doanh bằng nguồn nhân lực tinh nhuệ được đào tạo theo triết lý LẤY NGƯỜI HỌC LÀM TRUNG TÂM.',
-    cta1: { label: 'TÌM HIỂU GIẢI PHÁP NHÂN SỰ', href: '#services' },
-    cta2: { label: 'KHÁM PHÁ CHƯƠNG TRÌNH ĐÀO TẠO', href: '#training' },
-    bg: 'from-blue-900 to-blue-700',
-    image: images.hero.slide1,
-  },
-  {
-    id: 2,
-    headline: 'HỆ SINH THÁI KẾT NỐI VÀNG',
-    subheadline: 'TỪ TRI THỨC HỌC THUẬT ĐẾN THỰC CHIẾN CÔNG NGHỆ TOÀN CẦU',
-    description:
-      'WENet là cầu nối độc đáo giữa Nhà trường – Doanh nghiệp – Chuyên gia Toàn cầu. Đảm bảo đầu ra nhân lực Nhiệt huyết & Kỷ luật.',
-    cta1: { label: 'KẾT NỐI HỆ SINH THÁI ĐỐI TÁC', href: '#about' },
-    cta2: { label: 'GẶP GỠ ĐỘI NGŨ CHUYÊN GIA', href: '#about' },
-    bg: 'from-emerald-900 to-emerald-700',
-    image: images.hero.slide2,
-  },
-  {
-    id: 3,
-    headline: 'TALENT GATEWAY',
-    subheadline: 'LỐI ĐI TẮT ĐẾN SỰ NGHIỆP CÔNG NGHỆ CAO',
-    description:
-      'Biến tiềm năng thành Năng lực làm việc ngay từ ghế nhà trường. Cam kết đầu ra Chất lượng - Kỷ luật - Thấu hiểu.',
-    cta1: { label: 'XEM CHƯƠNG TRÌNH ĐÀO TẠO', href: '#training' },
-    cta2: { label: 'CƠ HỘI THỰC TẬP & VIỆC LÀM', href: '#contact' },
-    bg: 'from-purple-900 to-purple-700',
-    image: images.hero.slide3,
-  },
-  {
-    id: 4,
-    headline: 'TĂNG TỐC SỰ NGHIỆP CÔNG NGHỆ',
-    subheadline: 'MASTERING CLOUD, AI & EDGE TRONG KỶ NGUYÊN ĐỔI MỚI',
-    description:
-      'Nâng cấp chuyên môn lên tầm cao mới. Khai thác kinh nghiệm thực chiến từ các chuyên gia hàng đầu đang làm việc tại Mỹ và Nhật Bản.',
-    cta1: { label: 'TÌM HIỂU CÁC KHÓA HỌC', href: '#training' },
-    cta2: { label: 'TƯ VẤN LỘ TRÌNH SỰ NGHIỆP', href: '#contact' },
-    bg: 'from-orange-900 to-orange-700',
-    image: images.hero.slide4,
-  },
-];
+import { heroSlides } from '@/lib/content';
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(0);
@@ -63,7 +16,7 @@ export default function HeroSection() {
   }, [isTransitioning]);
 
   const nextSlide = useCallback(() => {
-    goToSlide((current + 1) % slides.length);
+    goToSlide((current + 1) % heroSlides.length);
   }, [current, goToSlide]);
 
   useEffect(() => {
@@ -74,7 +27,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Slides */}
-      {slides.map((slide, idx) => (
+      {heroSlides.map((slide, idx) => (
         <div
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
@@ -85,10 +38,12 @@ export default function HeroSection() {
           <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg}`} />
           
           {/* Image Background */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          />
+          {slide.image && (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            />
+          )}
           
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/40" />
@@ -103,21 +58,21 @@ export default function HeroSection() {
               isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
           >
-            {slides[current].headline}
+            {heroSlides[current].headline}
           </h1>
           <h2
             className={`text-xl md:text-2xl lg:text-3xl font-semibold text-white/90 mb-6 transition-all duration-500 delay-100 ${
               isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
           >
-            {slides[current].subheadline}
+            {heroSlides[current].subheadline}
           </h2>
           <p
             className={`text-lg md:text-xl text-white/80 mb-8 max-w-2xl transition-all duration-500 delay-200 ${
               isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
           >
-            {slides[current].description}
+            {heroSlides[current].description}
           </p>
 
           <div
@@ -125,23 +80,23 @@ export default function HeroSection() {
               isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
             }`}
           >
-            <Button href={slides[current].cta1.href} variant="secondary" size="lg">
-              {slides[current].cta1.label}
+            <Button href={heroSlides[current].cta1.href} variant="secondary" size="lg">
+              {heroSlides[current].cta1.label}
             </Button>
             <Button
-              href={slides[current].cta2.href}
+              href={heroSlides[current].cta2.href}
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white hover:text-gray-900"
             >
-              {slides[current].cta2.label}
+              {heroSlides[current].cta2.label}
             </Button>
           </div>
         </div>
 
         {/* Slide Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
-          {slides.map((_, idx) => (
+          {heroSlides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => goToSlide(idx)}
@@ -158,7 +113,7 @@ export default function HeroSection() {
 
         {/* Navigation Arrows */}
         <button
-          onClick={() => goToSlide((current - 1 + slides.length) % slides.length)}
+          onClick={() => goToSlide((current - 1 + heroSlides.length) % heroSlides.length)}
           disabled={isTransitioning}
           className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-20"
           aria-label="Previous slide"
@@ -168,7 +123,7 @@ export default function HeroSection() {
           </svg>
         </button>
         <button
-          onClick={() => goToSlide((current + 1) % slides.length)}
+          onClick={() => goToSlide((current + 1) % heroSlides.length)}
           disabled={isTransitioning}
           className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-20"
           aria-label="Next slide"
