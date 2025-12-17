@@ -121,10 +121,10 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4 text-gray-400 text-sm">
-                  <p>📍 Khuôn viên Đại học, Hà Nội</p>
-                  <p>📞 +84 xxx xxx xxx</p>
-                  <p>✉️ contact@wenet.vn</p>
+                <div className="mt-4 text-gray-400 text-sm space-y-1">
+                  <p className="whitespace-nowrap">📍 54 P.Triều Khúc, Thanh Liệt, Hà Nội</p>
+                  <p className="whitespace-nowrap">📞 +84 xxx xxx xxx</p>
+                  <p className="whitespace-nowrap">✉️ contact@wenet.vn</p>
                 </div>
               </div>
             </div>
