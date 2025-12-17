@@ -2,17 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Container } from '../ui';
 import { images } from '@/lib/images';
 
 const menuItems = [
-  { label: 'Trang chủ', href: '#home' },
-  { label: 'Giới thiệu', href: '#about' },
-  { label: 'Dịch vụ', href: '#services' },
-  { label: 'Đào tạo', href: '#training' },
-  { label: 'Công nghệ R&D', href: '#rnd' },
-  { label: 'Tin tức', href: '#news' },
-  { label: 'Liên hệ', href: '#contact' },
+  { label: 'Trang chủ', href: '#home', isExternal: false },
+  { label: 'Giới thiệu', href: '/about/', isExternal: true },
+  { label: 'Dịch vụ', href: '#services', isExternal: false },
+  { label: 'Đào tạo', href: '#training', isExternal: false },
+  { label: 'Công nghệ R&D', href: '#rnd', isExternal: false },
+  { label: 'Tin tức', href: '#news', isExternal: false },
+  { label: 'Liên hệ', href: '#contact', isExternal: false },
 ];
 
 export default function Header() {
@@ -77,7 +78,7 @@ export default function Header() {
               <span className="text-white font-bold text-xl absolute">W</span>
             </div>
             <span className="font-bold text-xl text-gray-900 group-hover:text-[#0066cc] transition-colors">
-              WENet Hà Nội
+              WENet Việt Nam
             </span>
           </a>
 
@@ -85,19 +86,28 @@ export default function Header() {
           <ul className="hidden lg:flex items-center gap-6">
             {menuItems.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={`relative py-2 font-medium transition-colors ${
-                    activeSection === item.href.replace('#', '')
-                      ? 'text-[#0066cc]'
-                      : 'text-gray-700 hover:text-[#0066cc]'
-                  }`}
-                >
-                  {item.label}
-                  {activeSection === item.href.replace('#', '') && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0066cc] rounded-full" />
-                  )}
-                </a>
+                {item.isExternal ? (
+                  <Link
+                    href={item.href}
+                    className="relative py-2 font-medium text-gray-700 hover:text-[#0066cc] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={`relative py-2 font-medium transition-colors ${
+                      activeSection === item.href.replace('#', '')
+                        ? 'text-[#0066cc]'
+                        : 'text-gray-700 hover:text-[#0066cc]'
+                    }`}
+                  >
+                    {item.label}
+                    {activeSection === item.href.replace('#', '') && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0066cc] rounded-full" />
+                    )}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -146,17 +156,27 @@ export default function Header() {
           <ul className="flex flex-col gap-2 py-4 border-t">
             {menuItems.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  className={`block px-4 py-2 rounded-lg font-medium transition-colors ${
-                    activeSection === item.href.replace('#', '')
-                      ? 'bg-blue-50 text-[#0066cc]'
-                      : 'text-gray-700 hover:bg-gray-50 hover:text-[#0066cc]'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
+                {item.isExternal ? (
+                  <Link
+                    href={item.href}
+                    className="block px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0066cc] transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={`block px-4 py-2 rounded-lg font-medium transition-colors ${
+                      activeSection === item.href.replace('#', '')
+                        ? 'bg-blue-50 text-[#0066cc]'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-[#0066cc]'
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )}
               </li>
             ))}
             <li className="px-4 pt-2">

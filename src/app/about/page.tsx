@@ -46,18 +46,24 @@ export default function AboutPage() {
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <h1 className="text-lg font-bold text-gray-800">Giới thiệu về WENet</h1>
           <Link href="/" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
-            ← Quay lại trang chủ
+            Quay lại trang chủ →
           </Link>
-          <h1 className="text-lg font-bold text-gray-800">Giới thiệu WENet Hà Nội</h1>
         </div>
       </header>
 
-      {/* Hero: Video + Company Name */}
+      {/* Hero: Company Name + Video */}
       <section className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Video */}
+            {/* Company Name - Left */}
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">WENet Việt Nam</h2>
+              <p className="text-gray-600">Công ty Cổ phần WENet Việt Nam</p>
+              <p className="text-gray-500 mt-2">Kiến tạo Nhân lực Công nghệ Cao</p>
+            </div>
+            {/* Video - Right */}
             <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
               <video className="w-full h-full object-cover" controls poster="/images/about/video-poster.jpg">
                 <source src="/videos/wenet-intro.mp4" type="video/mp4" />
@@ -65,12 +71,6 @@ export default function AboutPage() {
                   Video giới thiệu WENet
                 </div>
               </video>
-            </div>
-            {/* Company Name */}
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">WENet Hà Nội</h2>
-              <p className="text-gray-600">Công ty Cổ phần WENet Hà Nội</p>
-              <p className="text-gray-500 mt-2">Kiến tạo Nhân lực Công nghệ Cao</p>
             </div>
           </div>
         </div>
