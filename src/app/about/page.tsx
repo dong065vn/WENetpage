@@ -154,7 +154,7 @@ export default function AboutPage() {
                   <h2 className="text-xl font-bold text-gray-900 mb-1">1.3. GIÁ TRỊ CỐT LÕI</h2>
                   <p className="text-blue-600 font-medium mb-4">Tiêu đề: VĂN HÓA LÀM VIỆC DỰA TRÊN KỶ LUẬT VÀ SÁNG TẠO</p>
                   <div className="text-gray-700 leading-relaxed">
-                    <p className="mb-3">Nội dung: WENet xây dựng chất lượng nhân sự và dịch vụ dựa trên bốn giá trị không thể thay đổi:</p>
+                    <p className="mb-3">Nội dung: WENet xây dựng chất lượng nhân sự và dịch vụ dựa trên sáu giá trị không thể thay đổi:</p>
                     <ul className="list-disc list-inside space-y-2 ml-4">
                       <li>
                         <strong>Nhiệt Huyết:</strong> Luôn giữ lửa đam mê, tinh thần chủ động trong mọi dự án và khóa học.

@@ -28,7 +28,7 @@ const aboutBlocks = [
     title: 'GIÁ TRỊ CỐT LÕI',
     subtitle: 'VĂN HÓA LÀM VIỆC DỰA TRÊN KỶ LUẬT VÀ SÁNG TẠO',
     content:
-      'Nhiệt Huyết - Nguyên Tắc & Kỷ Luật - Sáng tạo bền vững - Lắng Nghe & Thấu Hiểu. Bốn giá trị không thể thay đổi xây dựng chất lượng nhân sự và dịch vụ.',
+      'Nhiệt Huyết - Nguyên Tắc & Kỷ Luật - Sáng tạo bền vững - Lắng Nghe & Thấu Hiểu. Sáu giá trị không thể thay đổi xây dựng chất lượng nhân sự và dịch vụ.',
     image: images.about.values,
   },
   {
