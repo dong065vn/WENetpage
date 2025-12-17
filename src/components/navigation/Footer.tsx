@@ -80,7 +80,7 @@ export default function Footer() {
                   <span className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400">
                     🏢
                   </span>
-                  <h4 className="font-semibold text-white">Công ty</h4>
+                  <h4 className="font-semibold text-white uppercase tracking-wide text-sm">Công ty</h4>
                 </div>
                 <ul className="space-y-2.5">
                   {footerLinks.company.map((link) => (
@@ -103,7 +103,7 @@ export default function Footer() {
                   <span className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400">
                     ⚡
                   </span>
-                  <h4 className="font-semibold text-white">Dịch vụ</h4>
+                  <h4 className="font-semibold text-white uppercase tracking-wide text-sm">Dịch vụ</h4>
                 </div>
                 <ul className="space-y-2.5">
                   {footerLinks.services.map((link) => (
@@ -126,7 +126,7 @@ export default function Footer() {
                   <span className="w-8 h-8 bg-[#0066cc]/30 rounded-lg flex items-center justify-center text-blue-300">
                     📞
                   </span>
-                  <h4 className="font-semibold text-white">Liên hệ</h4>
+                  <h4 className="font-semibold text-white uppercase tracking-wide text-sm">Liên hệ</h4>
                 </div>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-3 text-gray-300">
