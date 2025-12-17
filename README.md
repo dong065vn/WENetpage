@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WENet Hà Nội - Landing Page
 
-## Getting Started
+Website giới thiệu công ty WENet Hà Nội - Kiến tạo Nhân lực Công nghệ Cao.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+
+## 📁 Cấu trúc Project
+
+```
+src/
+├── app/
+│   ├── page.tsx          # Landing page chính
+│   ├── admin/            # Dashboard quản lý
+│   └── globals.css
+├── components/
+│   ├── ui/               # Base components (Button, Container, etc.)
+│   ├── navigation/       # Header, Footer
+│   └── sections/         # Các section của landing page
+└── lib/
+    ├── content.ts        # Nội dung website (centralized)
+    └── images.ts         # Cấu hình đường dẫn ảnh
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏃 Chạy Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Mở [http://localhost:3000](http://localhost:3000) để xem website.
 
-## Learn More
+## 📊 Admin Dashboard
 
-To learn more about Next.js, take a look at the following resources:
+Truy cập [http://localhost:3000/admin](http://localhost:3000/admin) để quản lý nội dung.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🖼️ Thêm ảnh
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Đặt ảnh vào `public/images/` theo cấu trúc trong `public/images/README.md`.
 
-## Deploy on Vercel
+## 📦 Build Production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 License
+
+© 2024 WENet Hà Nội
