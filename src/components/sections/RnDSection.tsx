@@ -12,7 +12,6 @@ const researchAreas = [
     subtitle: 'Optimized Edge AI',
     description: 'Nghiên cứu các thuật toán nén mô hình học sâu, lượng tử hóa và tối ưu hóa chip để triển khai AI hiệu quả trên các thiết bị tài nguyên thấp.',
     impact: 'Giảm độ trễ, tăng cường bảo mật và tiết kiệm băng thông - chìa khóa cho IoT và Smart City.',
-    icon: '🧠',
     color: 'blue',
     image: images.rnd.edgeAi,
   },
@@ -22,7 +21,6 @@ const researchAreas = [
     subtitle: 'Hybrid & Distributed Cloud',
     description: 'Phát triển các mô hình quản lý, điều phối và bảo mật dữ liệu trên các môi trường Cloud Lai và Đa Cloud.',
     impact: 'Giúp doanh nghiệp đạt được khả năng mở rộng và linh hoạt tối đa.',
-    icon: '☁️',
     color: 'emerald',
     image: images.rnd.cloud,
   },
@@ -32,16 +30,15 @@ const researchAreas = [
     subtitle: 'Cross-Reality Learning',
     description: 'Sử dụng VR, AR, XR để tạo ra các Digital Twins của môi trường làm việc phức tạp.',
     impact: 'Cốt lõi của Chuyển giao Phương pháp Đào tạo Mới - đảm bảo kỹ năng thực hành sâu nhất.',
-    icon: '🥽',
     color: 'purple',
     image: images.rnd.xr,
   },
 ];
 
 const environment = [
-  { id: 'lab', icon: '🔬', title: 'XR Lab', desc: 'Phòng thí nghiệm VR/AR/XR tiên tiến', image: images.rnd.lab },
-  { id: 'academic', icon: '🎓', title: 'Hợp tác học thuật', desc: 'Vị trí tại trường Đại học lớn', image: images.rnd.main },
-  { id: 'standard', icon: '✅', title: 'Tiêu chuẩn quốc tế', desc: 'Kết quả được kiểm chứng bởi chuyên gia', image: images.rnd.main },
+  { id: 'lab', title: 'XR Lab', desc: 'Phòng thí nghiệm VR/AR/XR tiên tiến', image: images.rnd.lab },
+  { id: 'academic', title: 'Hợp tác học thuật', desc: 'Vị trí tại trường Đại học lớn', image: images.rnd.main },
+  { id: 'standard', title: 'Tiêu chuẩn quốc tế', desc: 'Kết quả được kiểm chứng bởi chuyên gia', image: images.rnd.main },
 ];
 
 export default function RnDSection() {
@@ -57,7 +54,7 @@ export default function RnDSection() {
 
         <FadeInSection delay={100}>
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 mb-12 text-white">
-            <h3 className="text-xl font-bold mb-4">🎯 TRIẾT LÝ R&D CỐT LÕI: SÁNG TẠO BỀN VỮNG</h3>
+            <h3 className="text-xl font-bold mb-4">TRIẾT LÝ R&D CỐT LÕI: SÁNG TẠO BỀN VỮNG</h3>
             <p className="text-gray-300 leading-relaxed">
               Hoạt động R&D tại WENet Hà Nội hướng tới Sáng tạo Bền Vững. Nền tảng R&D được xây dựng trên sự hợp tác chặt chẽ giữa Đội ngũ học thuật và Chuyên gia thực chiến.
             </p>
@@ -76,7 +73,7 @@ export default function RnDSection() {
               }`}>
                 <div className={`relative h-40 ${area.color === 'blue' ? 'bg-gradient-to-br from-blue-500 to-blue-700' : area.color === 'emerald' ? 'bg-gradient-to-br from-emerald-500 to-emerald-700' : 'bg-gradient-to-br from-purple-500 to-purple-700'}`}>
                   {!imageErrors[area.id] && <Image src={area.image} alt={area.title} fill className="object-cover" onError={() => handleImageError(area.id)} />}
-                  <div className="absolute bottom-3 left-3 text-4xl drop-shadow-lg">{area.icon}</div>
+
                 </div>
                 <div className="p-6">
                   <h4 className="font-bold text-gray-900 mb-1">{area.title}</h4>
@@ -103,7 +100,6 @@ export default function RnDSection() {
                   {!imageErrors[item.id] && <Image src={item.image} alt={item.title} fill className="object-cover" onError={() => handleImageError(item.id)} />}
                 </div>
                 <div className="p-6 text-center">
-                  <div className="text-4xl mb-3">{item.icon}</div>
                   <h4 className="font-bold text-gray-900 mb-2">{item.title}</h4>
                   <p className="text-gray-600 text-sm">{item.desc}</p>
                 </div>

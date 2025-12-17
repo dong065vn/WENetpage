@@ -35,6 +35,7 @@ export default function AboutPage() {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -89,7 +90,7 @@ export default function AboutPage() {
                     <button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
-                      className={`w-full text-left px-2 py-1.5 rounded text-sm ${
+                      className={`w-full text-left px-2 py-1.5 rounded text-sm transition-all duration-300 ease-in-out ${
                         activeSection === item.id
                           ? 'bg-blue-100 text-blue-700 font-medium'
                           : 'text-gray-600 hover:bg-gray-100'

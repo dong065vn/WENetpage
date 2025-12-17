@@ -6,12 +6,12 @@ import { Container, SectionTitle, Button, FadeInSection } from '../ui';
 import { images } from '@/lib/images';
 
 const features = [
-  { icon: '🥽', title: 'VR/AR/3D Simulations', desc: 'Mô phỏng môi trường làm việc thực tế' },
-  { icon: '🤖', title: 'AI Learning Paths', desc: 'Lộ trình học tập cá nhân hóa bằng AI' },
-  { icon: '☁️', title: 'TrainerEdge™ Platform', desc: 'Nền tảng đào tạo cloud-edge tiên tiến' },
-  { icon: '🌐', title: 'English & Japanese', desc: 'Đào tạo song ngữ Anh - Nhật' },
-  { icon: '💼', title: 'Job Matching', desc: 'Kết nối việc làm với đối tác' },
-  { icon: '✈️', title: 'Visa Support', desc: 'Hỗ trợ visa làm việc nước ngoài' },
+  { title: 'VR/AR/3D Simulations', desc: 'Mô phỏng môi trường làm việc thực tế' },
+  { title: 'AI Learning Paths', desc: 'Lộ trình học tập cá nhân hóa bằng AI' },
+  { title: 'TrainerEdge™ Platform', desc: 'Nền tảng đào tạo cloud-edge tiên tiến' },
+  { title: 'English & Japanese', desc: 'Đào tạo song ngữ Anh - Nhật' },
+  { title: 'Job Matching', desc: 'Kết nối việc làm với đối tác' },
+  { title: 'Visa Support', desc: 'Hỗ trợ visa làm việc nước ngoài' },
 ];
 
 const audiences = [
@@ -71,7 +71,6 @@ export default function TrainingSection() {
                 className="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
-                <div className="text-3xl mb-2">{feature.icon}</div>
                 <h4 className="font-semibold text-gray-900 text-sm mb-1">{feature.title}</h4>
                 <p className="text-gray-500 text-xs">{feature.desc}</p>
               </div>
