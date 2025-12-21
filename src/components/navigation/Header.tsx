@@ -65,20 +65,16 @@ export default function Header() {
         <nav className="flex items-center justify-between h-16 md:h-20 py-1">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            {/* Logo Icon */}
+            {/* Logo Icon - Clean without overlay text */}
             <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
-              <div className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#0066cc] to-[#0052a3] rounded-2xl flex items-center justify-center overflow-hidden shadow-lg">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] rounded-2xl blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+              <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#0066cc] to-[#0052a3] rounded-2xl flex items-center justify-center overflow-hidden shadow-lg">
                 <Image
                   src={images.logo.main}
                   alt="WENet Logo"
                   fill
-                  className="object-contain p-1"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
+                  className="object-contain p-1.5"
                 />
-                <span className="text-white font-bold text-2xl md:text-3xl absolute drop-shadow-sm">W</span>
               </div>
             </div>
             
