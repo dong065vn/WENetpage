@@ -55,56 +55,70 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-white shadow-lg'
-          : 'bg-white/95 backdrop-blur-sm shadow-sm'
+          ? 'bg-white/98 shadow-xl shadow-blue-900/5 backdrop-blur-md'
+          : 'bg-white shadow-sm'
       }`}
     >
       <Container>
         <nav className="flex items-center justify-between h-16 md:h-20 py-1">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#0066cc] to-blue-700 rounded-xl flex items-center justify-center overflow-hidden shadow-md">
-              <Image
-                src={images.logo.main}
-                alt="WENet Logo"
-                fill
-                className="object-contain p-1.5"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-              <span className="text-white font-bold text-2xl md:text-3xl absolute">W</span>
+            {/* Logo Icon */}
+            <div className="relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+              <div className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#0066cc] to-[#0052a3] rounded-2xl flex items-center justify-center overflow-hidden shadow-lg">
+                <Image
+                  src={images.logo.main}
+                  alt="WENet Logo"
+                  fill
+                  className="object-contain p-1"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+                <span className="text-white font-bold text-2xl md:text-3xl absolute drop-shadow-sm">W</span>
+              </div>
             </div>
-            <span className="font-bold text-lg md:text-xl text-gray-900 group-hover:text-[#0066cc] transition-colors">
-              WENet Hà Nội
-            </span>
+            
+            {/* Divider */}
+            <div className="hidden sm:block w-[2px] h-10 bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 rounded-full" />
+            
+            {/* Brand Name */}
+            <div className="flex flex-col -space-y-0.5">
+              <span className="font-black text-xl md:text-2xl tracking-tight text-[#1a1a1a] group-hover:text-[#0066cc] transition-colors duration-300">
+                WENet
+              </span>
+              <span className="text-sm md:text-base font-semibold text-[#00a0e9] tracking-wide">
+                HÀ NỘI
+              </span>
+            </div>
           </a>
 
-          {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center gap-6">
+          {/* Desktop Menu - Enhanced */}
+          <ul className="hidden lg:flex items-center gap-1">
             {menuItems.map((item) => (
               <li key={item.href}>
                 {item.isExternal ? (
                   <Link
                     href={item.href}
-                    className="relative py-2 font-medium text-gray-700 hover:text-[#0066cc] transition-colors"
+                    className="relative px-4 py-2 font-medium text-gray-600 hover:text-[#0066cc] transition-all duration-300 rounded-lg hover:bg-blue-50/50"
                   >
                     {item.label}
                   </Link>
                 ) : (
                   <a
                     href={item.href}
-                    className={`relative py-2 font-medium transition-colors ${
+                    className={`relative px-4 py-2 font-medium transition-all duration-300 rounded-lg ${
                       activeSection === item.href.replace('#', '')
-                        ? 'text-[#0066cc]'
-                        : 'text-gray-700 hover:text-[#0066cc]'
+                        ? 'text-[#0066cc] bg-blue-50'
+                        : 'text-gray-600 hover:text-[#0066cc] hover:bg-blue-50/50'
                     }`}
                   >
                     {item.label}
                     {activeSection === item.href.replace('#', '') && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0066cc] rounded-full" />
+                      <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] rounded-full" />
                     )}
                   </a>
                 )}
@@ -112,22 +126,25 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA Button (Desktop) */}
+          {/* CTA Button (Desktop) - Enhanced with brand colors */}
           <a
             href="#contact"
-            className="hidden lg:inline-flex px-5 py-2.5 bg-[#0066cc] text-white font-semibold rounded-full hover:bg-[#004d99] transition-colors"
+            className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] text-white font-semibold rounded-full hover:from-[#004d99] hover:to-[#0088cc] transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5 group"
           >
-            Liên hệ ngay
+            <span>Liên hệ ngay</span>
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Enhanced */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2.5 rounded-xl hover:bg-blue-50 transition-all duration-300 text-gray-600 hover:text-[#0066cc]"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
                 <path
                   strokeLinecap="round"
@@ -147,19 +164,23 @@ export default function Header() {
           </button>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Enhanced */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+            isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <ul className="flex flex-col gap-2 py-4 border-t">
-            {menuItems.map((item) => (
-              <li key={item.href}>
+          <ul className="flex flex-col gap-1 py-4 border-t border-blue-100">
+            {menuItems.map((item, index) => (
+              <li 
+                key={item.href}
+                style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
+                className={`transform transition-all duration-300 ${isOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`}
+              >
                 {item.isExternal ? (
                   <Link
                     href={item.href}
-                    className="block px-4 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-[#0066cc] transition-colors"
+                    className="block px-4 py-3 rounded-xl font-medium text-gray-600 hover:bg-blue-50 hover:text-[#0066cc] transition-all duration-300"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -167,10 +188,10 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className={`block px-4 py-2 rounded-lg font-medium transition-colors ${
+                    className={`block px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
                       activeSection === item.href.replace('#', '')
-                        ? 'bg-blue-50 text-[#0066cc]'
-                        : 'text-gray-700 hover:bg-gray-50 hover:text-[#0066cc]'
+                        ? 'bg-gradient-to-r from-blue-50 to-blue-100/50 text-[#0066cc] border-l-4 border-[#0066cc]'
+                        : 'text-gray-600 hover:bg-blue-50 hover:text-[#0066cc]'
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -179,13 +200,16 @@ export default function Header() {
                 )}
               </li>
             ))}
-            <li className="px-4 pt-2">
+            <li className="px-4 pt-4">
               <a
                 href="#contact"
-                className="block w-full text-center px-5 py-2.5 bg-[#0066cc] text-white font-semibold rounded-full hover:bg-[#004d99] transition-colors"
+                className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] text-white font-semibold rounded-xl hover:from-[#004d99] hover:to-[#0088cc] transition-all duration-300 shadow-lg shadow-blue-500/20"
                 onClick={() => setIsOpen(false)}
               >
-                Liên hệ ngay
+                <span>Liên hệ ngay</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </a>
             </li>
           </ul>
