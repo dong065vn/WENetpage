@@ -78,7 +78,7 @@ export default function Header() {
               <span className="text-white font-bold text-xl absolute">W</span>
             </div>
             <span className="font-bold text-xl text-gray-900 group-hover:text-[#0066cc] transition-colors">
-              WENet Việt Nam
+              WENet Hà Nội
             </span>
           </a>
 
