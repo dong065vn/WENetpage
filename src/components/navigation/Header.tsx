@@ -62,22 +62,22 @@ export default function Header() {
       }`}
     >
       <Container>
-        <nav className="flex items-center justify-between h-16 md:h-20">
+        <nav className="flex items-center justify-between h-16 md:h-20 py-1">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
-            <div className="relative w-10 h-10 bg-[#0066cc] rounded-lg flex items-center justify-center overflow-hidden">
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-[#0066cc] to-blue-700 rounded-xl flex items-center justify-center overflow-hidden shadow-md">
               <Image
                 src={images.logo.main}
                 alt="WENet Logo"
                 fill
-                className="object-contain p-1"
+                className="object-contain p-1.5"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                 }}
               />
-              <span className="text-white font-bold text-xl absolute">W</span>
+              <span className="text-white font-bold text-2xl md:text-3xl absolute">W</span>
             </div>
-            <span className="font-bold text-xl text-gray-900 group-hover:text-[#0066cc] transition-colors">
+            <span className="font-bold text-lg md:text-xl text-gray-900 group-hover:text-[#0066cc] transition-colors">
               WENet Hà Nội
             </span>
           </a>
