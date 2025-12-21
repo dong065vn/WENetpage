@@ -81,8 +81,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
             {/* Company Name */}
             <div className="text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">WENet Việt Nam</h2>
-              <p className="text-gray-600 text-sm md:text-base">Công ty Cổ phần WENet Việt Nam</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">WENet Hà Nội</h2>
+              <p className="text-gray-600 text-sm md:text-base">Công ty Cổ phần WENet Hà Nội</p>
               <p className="text-gray-500 mt-2 text-sm md:text-base">Kiến tạo Nhân lực Công nghệ Cao</p>
             </div>
             {/* Video */}
