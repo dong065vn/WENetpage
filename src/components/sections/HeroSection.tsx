@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, [nextSlide]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden">
       {/* Background Slides */}
       {heroSlides.map((slide, idx) => (
         <div
@@ -37,60 +37,104 @@ export default function HeroSection() {
           {/* Gradient Background */}
           <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg}`} />
           
-          {/* Image Background */}
+          {/* Image Background with Ken Burns effect */}
           {slide.image && (
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className={`absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] ease-out ${
+                idx === current ? 'scale-105' : 'scale-100'
+              }`}
               style={{ backgroundImage: `url(${slide.image})` }}
             />
           )}
           
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Enhanced Overlay with gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
         </div>
       ))}
 
-      {/* Content */}
-      <Container className="relative z-20 py-32">
-        <div className="max-w-4xl">
+      {/* Content - Full width centered layout */}
+      <Container className="relative z-20 h-full flex flex-col justify-center pt-20">
+        <div className="w-full max-w-5xl mx-auto text-center">
+          {/* Main Headline */}
           <h1
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight transition-all duration-500 ${
-              isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+            className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight transition-all duration-700 ${
+              isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'
             }`}
+            style={{
+              textShadow: '0 4px 20px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3)',
+            }}
           >
-            {heroSlides[current].headline}
+            <span className="text-white">{heroSlides[current].headline}</span>
           </h1>
+
+          {/* Subheadline */}
           <h2
-            className={`text-xl md:text-2xl lg:text-3xl font-semibold text-white/90 mb-6 transition-all duration-500 delay-100 ${
-              isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+            className={`text-sm md:text-base lg:text-lg xl:text-xl font-medium uppercase tracking-[0.12em] mb-4 md:mb-6 transition-all duration-700 delay-100 ${
+              isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'
             }`}
+            style={{
+              color: 'rgba(255,255,255,0.9)',
+              textShadow: '0 2px 10px rgba(0,0,0,0.4)',
+            }}
           >
             {heroSlides[current].subheadline}
           </h2>
+
+          {/* Description */}
           <p
-            className={`text-lg md:text-xl text-white/80 mb-8 max-w-2xl transition-all duration-500 delay-200 ${
-              isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+            className={`text-sm md:text-base lg:text-lg text-white/85 mb-8 md:mb-10 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
+              isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'
             }`}
+            style={{
+              textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+            }}
           >
             {heroSlides[current].description}
           </p>
 
+          {/* CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 transition-all duration-500 delay-300 ${
-              isTransitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+            className={`flex flex-wrap gap-4 justify-center mb-10 md:mb-12 transition-all duration-700 delay-300 ${
+              isTransitioning ? 'opacity-0 translate-y-6' : 'opacity-100 translate-y-0'
             }`}
           >
-            <Button href={heroSlides[current].cta1.href} variant="secondary" size="lg">
+            <Button 
+              href={heroSlides[current].cta1.href} 
+              variant="secondary" 
+              size="lg"
+              className="min-w-[200px] shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:scale-105 transition-all duration-300 text-base"
+            >
               {heroSlides[current].cta1.label}
             </Button>
             <Button
               href={heroSlides[current].cta2.href}
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-gray-900"
+              className="min-w-[200px] border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm hover:scale-105 transition-all duration-300 text-base"
             >
               {heroSlides[current].cta2.label}
             </Button>
+          </div>
+
+          {/* Stats Row */}
+          <div
+            className={`flex justify-center gap-12 md:gap-16 lg:gap-20 transition-all duration-700 delay-400 ${
+              isTransitioning ? 'opacity-0' : 'opacity-100'
+            }`}
+          >
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white" style={{ textShadow: '0 0 15px rgba(251,146,60,0.5)' }}>10+</div>
+              <div className="text-xs md:text-sm text-white/70 mt-1">Năm kinh nghiệm</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white" style={{ textShadow: '0 0 15px rgba(251,146,60,0.5)' }}>500+</div>
+              <div className="text-xs md:text-sm text-white/70 mt-1">Dự án hoàn thành</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white" style={{ textShadow: '0 0 15px rgba(251,146,60,0.5)' }}>50+</div>
+              <div className="text-xs md:text-sm text-white/70 mt-1">Đối tác tin cậy</div>
+            </div>
           </div>
         </div>
 
@@ -101,10 +145,10 @@ export default function HeroSection() {
               key={idx}
               onClick={() => goToSlide(idx)}
               disabled={isTransitioning}
-              className={`h-3 rounded-full transition-all duration-300 ${
+              className={`h-1.5 rounded-full transition-all duration-300 ${
                 idx === current
                   ? 'bg-white w-10'
-                  : 'bg-white/50 hover:bg-white/70 w-3'
+                  : 'bg-white/40 hover:bg-white/60 w-5'
               }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -115,7 +159,7 @@ export default function HeroSection() {
         <button
           onClick={() => goToSlide((current - 1 + heroSlides.length) % heroSlides.length)}
           disabled={isTransitioning}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-20"
+          className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-white transition-all duration-300 z-20"
           aria-label="Previous slide"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,7 +169,7 @@ export default function HeroSection() {
         <button
           onClick={() => goToSlide((current + 1) % heroSlides.length)}
           disabled={isTransitioning}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors z-20"
+          className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-white transition-all duration-300 z-20"
           aria-label="Next slide"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,13 +177,6 @@ export default function HeroSection() {
           </svg>
         </button>
       </Container>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-        <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
     </section>
   );
 }

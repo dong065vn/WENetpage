@@ -10,35 +10,35 @@ const researchAreas = [
     id: 'edge-ai',
     title: 'AI được tối ưu hóa trên Edge',
     subtitle: 'Optimized Edge AI',
-    description: 'Nghiên cứu các thuật toán nén mô hình học sâu, lượng tử hóa và tối ưu hóa chip để triển khai AI hiệu quả trên các thiết bị tài nguyên thấp.',
-    impact: 'Giảm độ trễ, tăng cường bảo mật và tiết kiệm băng thông - chìa khóa cho IoT và Smart City.',
+    description: 'Nghiên cứu các thuật toán nén mô hình học sâu (Model Compression), lượng tử hóa (Quantization) và tối ưu hóa chip để triển khai AI hiệu quả trên các thiết bị tài nguyên thấp (Edge Devices).',
+    impact: 'Giảm độ trễ, tăng cường bảo mật và tiết kiệm băng thông, là chìa khóa cho các giải pháp IoT và Smart City.',
     color: 'blue',
     image: images.rnd.edgeAi,
   },
   {
     id: 'cloud',
     title: 'Kiến trúc Cloud lai & phân tán',
-    subtitle: 'Hybrid & Distributed Cloud',
-    description: 'Phát triển các mô hình quản lý, điều phối và bảo mật dữ liệu trên các môi trường Cloud Lai và Đa Cloud.',
-    impact: 'Giúp doanh nghiệp đạt được khả năng mở rộng và linh hoạt tối đa.',
+    subtitle: 'Hybrid & Distributed Cloud Architectures',
+    description: 'Phát triển các mô hình quản lý, điều phối (Orchestration) và bảo mật dữ liệu trên các môi trường Cloud Lai (Hybrid) và Đa Cloud (Multi-Cloud).',
+    impact: 'Giúp doanh nghiệp đạt được khả năng mở rộng (Scalability) và linh hoạt tối đa, đặc biệt quan trọng trong các ngành tài chính và bán lẻ.',
     color: 'emerald',
     image: images.rnd.cloud,
   },
   {
     id: 'xr',
-    title: 'Phương pháp học tập XR',
-    subtitle: 'Cross-Reality Learning',
-    description: 'Sử dụng VR, AR, XR để tạo ra các Digital Twins của môi trường làm việc phức tạp.',
-    impact: 'Cốt lõi của Chuyển giao Phương pháp Đào tạo Mới - đảm bảo kỹ năng thực hành sâu nhất.',
+    title: 'Phương pháp học tập tương tác thực tại',
+    subtitle: 'Cross-Reality Learning Methods',
+    description: 'Sử dụng VR, AR, XR không chỉ để mô phỏng mà để tạo ra các "Twin Kỹ thuật số" (Digital Twins) của môi trường làm việc phức tạp (ví dụ: trung tâm dữ liệu, dây chuyền sản xuất), cho phép thực hành xử lý sự cố trong môi trường không rủi ro.',
+    impact: 'Đây là cốt lõi của "Chuyển giao Phương pháp Đào tạo Mới", đảm bảo người học và nhân sự có kinh nghiệm đạt được kỹ năng thực hành sâu nhất.',
     color: 'purple',
     image: images.rnd.xr,
   },
 ];
 
 const environment = [
-  { id: 'lab', title: 'XR Lab', desc: 'Phòng thí nghiệm VR/AR/XR tiên tiến', image: images.rnd.lab },
-  { id: 'academic', title: 'Hợp tác học thuật', desc: 'Vị trí tại trường Đại học lớn', image: images.rnd.main },
-  { id: 'standard', title: 'Tiêu chuẩn quốc tế', desc: 'Kết quả được kiểm chứng bởi chuyên gia', image: images.rnd.main },
+  { id: 'lab', title: 'Phòng Thí nghiệm XR Lab', desc: 'Nơi thử nghiệm và phát triển các ứng dụng VR/AR/XR. Môi trường này là tài sản độc quyền, trực tiếp phục vụ cho việc đào tạo và giải quyết các bài toán của đối tác.', image: images.rnd.lab },
+  { id: 'academic', title: 'Hợp tác học thuật', desc: 'Vị trí tại trường Đại học lớn cho phép WENet Hà Nội tham gia vào các công bố nghiên cứu khoa học, giúp công ty luôn cập nhật các mô hình và giả thuyết mới nhất.', image: images.rnd.main },
+  { id: 'standard', title: 'Sản phẩm Đạt tiêu chuẩn', desc: 'Mọi kết quả nghiên cứu ứng dụng đều được kiểm chứng về mặt kỹ thuật bởi đội ngũ chuyên gia, đảm bảo chất lượng đầu ra đạt chuẩn quốc tế.', image: images.rnd.main },
 ];
 
 export default function RnDSection() {
@@ -55,8 +55,11 @@ export default function RnDSection() {
         <FadeInSection delay={100}>
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl md:rounded-2xl p-4 md:p-8 mb-8 md:mb-12 text-white">
             <h3 className="text-base md:text-xl font-bold mb-2 md:mb-4">TRIẾT LÝ R&D CỐT LÕI: SÁNG TẠO BỀN VỮNG</h3>
+            <p className="text-gray-300 leading-relaxed text-sm md:text-base mb-4">
+              Hoạt động Nghiên cứu và Phát triển tại WENet Hà Nội không chỉ nhằm mục đích thương mại mà còn hướng tới &quot;Sáng tạo Bền Vững&quot;. Chúng tôi tập trung vào việc tạo ra các mô hình và phương pháp có khả năng ứng dụng lâu dài, giải quyết các thách thức kỹ thuật phức tạp trong thế giới thực.
+            </p>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-              Hoạt động R&D tại WENet Hà Nội hướng tới Sáng tạo Bền Vững. Nền tảng R&D được xây dựng trên sự hợp tác chặt chẽ giữa Đội ngũ học thuật và Chuyên gia thực chiến.
+              Nền tảng R&D của chúng tôi được xây dựng trên sự hợp tác chặt chẽ giữa <strong className="text-white">Đội ngũ học thuật</strong> (từ các Đại học) và <strong className="text-white">Chuyên gia thực chiến</strong> (từ các Tập đoàn), đảm bảo tính hàn lâm và tính khả thi thương mại cho mọi nghiên cứu.
             </p>
           </div>
         </FadeInSection>

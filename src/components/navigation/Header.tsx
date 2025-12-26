@@ -10,7 +10,7 @@ const menuItems = [
   { label: 'Trang chủ', href: '#home', isExternal: false },
   { label: 'Giới thiệu', href: '#about', isExternal: false },
   { label: 'Dịch vụ', href: '#services', isExternal: false },
-  { label: 'Đào tạo', href: '#training', isExternal: false },
+  { label: 'Đào tạo nhân lực', href: '#training', isExternal: false },
   { label: 'Công nghệ R&D', href: '#rnd', isExternal: false },
   { label: 'Tin tức', href: '#news', isExternal: false },
   { label: 'Liên hệ', href: '#contact', isExternal: false },

@@ -18,30 +18,35 @@ const audiences = [
   {
     id: 'student',
     title: 'Dành cho Sinh viên',
-    subtitle: 'TALENT GATEWAY: LỐI ĐI TẮT ĐẾN SỰ NGHIỆP CÔNG NGHỆ CAO',
+    subtitle: 'TALENT GATEWAY: LỐI ĐI TẮT ĐẾN SỰ NGHIỆP CÔNG NGHỆ CAO - CHUYỂN GIAO KỸ NĂNG THỰC CHIẾN CLOUD, AI & EDGE',
+    description: 'Biến tiềm năng thành Năng lực làm việc ngay từ ghế nhà trường. Áp dụng triết lý học tập lấy người học làm trung tâm qua công nghệ VR/AR tiên tiến. Cam kết đầu ra Chất lượng - Kỷ luật - Thấu hiểu.',
     benefits: [
-      'Tiếp cận mô hình AI/Cloud/Edge trong môi trường thực chiến',
+      'Được tiếp cận mô hình AI/Cloud/Edge trong môi trường thực chiến',
       'Tối ưu hóa thời gian học với công nghệ VR/AR/XR',
-      'Nghiên cứu & phát triển ngay tại khuôn viên đại học',
-      'Cơ hội thực tập & việc làm ưu tiên tại mạng lưới đối tác',
-      'Tạo lợi thế cạnh tranh nhờ kỷ luật và nguyên tắc làm việc',
+      'Nghiên cứu & phát triển (R&D) ngay tại khuôn viên đại học',
+      'Có cơ hội thực tập & việc làm ưu tiên tại mạng lưới đối tác',
+      'Tạo được lợi thế cạnh tranh nhờ kỷ luật và nguyên tắc làm việc',
     ],
     color: 'purple',
     image: images.training.student,
+    cta1: { label: 'XEM CHƯƠNG TRÌNH ĐÀO TẠO ĐỘT PHÁ', href: '#contact' },
+    cta2: { label: 'CƠ HỘI THỰC TẬP & VIỆC LÀM', href: '#contact' },
   },
   {
     id: 'professional',
     title: 'Dành cho Người lao động công nghệ',
-    subtitle: 'TĂNG TỐC SỰ NGHIỆP: MASTERING CLOUD, AI & EDGE',
+    subtitle: 'TĂNG TỐC SỰ NGHIỆP CÔNG NGHỆ: MASTERING CLOUD, AI & EDGE TRONG KỶ NGUYÊN ĐỔI MỚI',
+    description: 'Nâng cấp chuyên môn lên tầm cao mới. Khai thác kinh nghiệm thực chiến từ các chuyên gia hàng đầu đang làm việc tại Mỹ và cho các doanh nghiệp Nhật Bản. Đào tạo chuyên sâu theo mô hình Sáng tạo bền vững.',
     benefits: [
-      'Nâng cấp Kỹ năng lên Architect Level',
-      'Thiết kế hệ thống Cloud quy mô lớn',
-      'Triển khai mô hình AI trong Production',
+      'Nâng cấp Kỹ năng lên kiến trúc sư (Architect Level): Thiết kế hệ thống Cloud quy mô lớn, triển khai mô hình AI trong Production',
       'Làm chủ công nghệ VR/AR/XR cho môi trường công việc',
-      'Thực hành xử lý sự cố phức tạp và tối ưu hóa hệ thống',
+      'Sử dụng các phòng lab ảo để thực hành xử lý sự cố phức tạp (Troubleshooting)',
+      'Tối ưu hóa hệ thống với kinh nghiệm từ chuyên gia quốc tế',
     ],
     color: 'orange',
     image: images.training.professional,
+    cta1: { label: 'TÌM HIỂU CÁC KHÓA HỌC', href: '#contact' },
+    cta2: { label: 'TƯ VẤN LỘ TRÌNH SỰ NGHIỆP', href: '#contact' },
   },
 ];
 
@@ -107,7 +112,11 @@ export default function TrainingSection() {
                 </div>
 
                 <div className="p-4 md:p-6 lg:p-8">
-                  <h4 className="text-base md:text-xl font-bold mb-4 md:mb-6">{audience.subtitle}</h4>
+                  <h4 className="text-base md:text-xl font-bold mb-2 md:mb-3">{audience.subtitle}</h4>
+                  
+                  {audience.description && (
+                    <p className="text-white/80 text-sm mb-4">{audience.description}</p>
+                  )}
 
                   <ul className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                     {audience.benefits.map((benefit, benefitIdx) => (
@@ -120,13 +129,24 @@ export default function TrainingSection() {
                     ))}
                   </ul>
 
-                  <Button
-                    href="#contact"
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-gray-900"
-                  >
-                    Tìm hiểu thêm
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button
+                      href={audience.cta1?.href || '#contact'}
+                      variant="outline"
+                      className="border-white text-white hover:bg-white hover:text-gray-900 text-sm"
+                    >
+                      {audience.cta1?.label || 'Tìm hiểu thêm'}
+                    </Button>
+                    {audience.cta2 && (
+                      <Button
+                        href={audience.cta2.href}
+                        variant="outline"
+                        className="border-white/50 text-white hover:bg-white/10 text-sm"
+                      >
+                        {audience.cta2.label}
+                      </Button>
+                    )}
+                  </div>
                 </div>
               </div>
             </FadeInSection>

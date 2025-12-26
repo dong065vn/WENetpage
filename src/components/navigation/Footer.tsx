@@ -39,24 +39,33 @@ export default function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
               {/* Brand Section */}
               <div className="lg:col-span-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="relative w-12 h-12 bg-gradient-to-br from-[#0066cc] to-blue-700 rounded-xl flex items-center justify-center overflow-hidden shadow-lg shadow-blue-500/20">
-                    <Image
-                      src={images.logo.white}
-                      alt="WENet Logo"
-                      fill
-                      className="object-contain p-1.5"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                    <span className="text-white font-bold text-2xl absolute">W</span>
+                <a href="#home" className="flex items-center gap-3 mb-5 group">
+                  {/* Logo Icon - Same as Header */}
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[#0066cc] to-[#00a0e9] rounded-2xl blur opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
+                    <div className="relative w-14 h-14 bg-gradient-to-br from-[#0066cc] to-[#0052a3] rounded-2xl flex items-center justify-center overflow-hidden shadow-lg shadow-blue-500/30">
+                      <Image
+                        src={images.logo.main}
+                        alt="WENet Logo"
+                        fill
+                        className="object-contain p-1.5"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-bold text-xl block">WENet Hà Nội</span>
-                    <span className="text-xs text-blue-400">Technology Partner</span>
+                  
+                  {/* Divider */}
+                  <div className="w-[2px] h-10 bg-gradient-to-b from-gray-600 via-gray-500 to-gray-600 rounded-full" />
+                  
+                  {/* Brand Name */}
+                  <div className="flex flex-col -space-y-0.5">
+                    <span className="font-black text-xl tracking-tight text-white group-hover:text-[#00a0e9] transition-colors duration-300">
+                      WENet
+                    </span>
+                    <span className="text-sm font-semibold text-[#00a0e9] tracking-wide">
+                      HÀ NỘI
+                    </span>
                   </div>
-                </div>
+                </a>
                 <p className="text-gray-400 text-sm mb-5 leading-relaxed">
                   Kiến tạo tương lai công nghệ cao - Chuyên gia số về Cloud, AI & Edge
                 </p>
@@ -155,7 +164,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">© 2024 WENet Hà Nội. All rights reserved.</p>
+          <p className="text-gray-500 text-sm">© 2025 WENet Hà Nội. All rights reserved.</p>
           <button
             onClick={scrollToTop}
             className="w-10 h-10 bg-gray-800 hover:bg-[#0066cc] border border-gray-700 hover:border-[#0066cc] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"

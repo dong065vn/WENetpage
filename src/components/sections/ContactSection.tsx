@@ -61,6 +61,9 @@ export default function ContactSection() {
             title="Liên hệ với WENet Hà Nội"
             subtitle="BẮT ĐẦU CHUYẾN HÀNH TRÌNH CÔNG NGHỆ CÙNG CHÚNG TÔI"
           />
+          <p className="text-center text-gray-600 max-w-3xl mx-auto mb-8 -mt-4">
+            Dù bạn là doanh nghiệp đang tìm kiếm giải pháp nhân sự công nghệ cao, hay là cá nhân muốn làm chủ các công nghệ Cloud, AI, Edge thế hệ mới, WENet Hà Nội sẵn sàng là đối tác chiến lược và người dẫn đường của bạn. Hãy liên hệ với chúng tôi ngay hôm nay để được tư vấn chuyên sâu.
+          </p>
         </FadeInSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">

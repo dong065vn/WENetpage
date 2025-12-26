@@ -225,7 +225,7 @@ export default function AboutPage() {
       {/* Footer */}
       <footer className="bg-gray-800 text-gray-400 py-4 md:py-6">
         <div className="max-w-6xl mx-auto px-4 text-center text-sm">
-          <p>© 2024 WENet Hà Nội. All rights reserved.</p>
+          <p>© 2025 WENet Hà Nội. All rights reserved.</p>
         </div>
       </footer>
     </div>
